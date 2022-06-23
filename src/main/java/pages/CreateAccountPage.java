@@ -28,6 +28,9 @@ public class CreateAccountPage {
     @FindBy(css = ".validation-summary-errors>ul>li")
     public List<WebElement> loginErrors;
 
+    @FindBy(id = "ConfirmPassword")
+    private WebElement confirmPassword;
+
     public CreateAccountPage typeEmail(String email) {
         emailTxt.clear();
         emailTxt.sendKeys(email);
@@ -40,10 +43,10 @@ public class CreateAccountPage {
         return this;
     }
 
-    public CreateAccountPage registerWithFailure() {
-        registerBtn.click();
+    public CreateAccountPage typeConfirmPassword(String pass){
+        confirmPassword.clear();
+        confirmPassword.sendKeys(pass);
         return this;
-    }
 
     public CreateAccountPage assertErrorIsShown(String errorText) {
         boolean doesErrorExists = false;
@@ -53,7 +56,7 @@ public class CreateAccountPage {
                 break;
             }
         }
-        Assert.assertTrue(doesErrorExists);
+        Assert.assertTrue(doesErrorExists, "Unknown error code");
         return this;
     }
 

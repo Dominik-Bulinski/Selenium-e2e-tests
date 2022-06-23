@@ -24,10 +24,18 @@
             <artifactId>testng</artifactId>
             <version>7.4.0</version>
         </dependency>
+
         <dependency>
             <groupId>com.github.javafaker</groupId>
             <artifactId>javafaker</artifactId>
             <version>1.0.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>5.2.0</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 

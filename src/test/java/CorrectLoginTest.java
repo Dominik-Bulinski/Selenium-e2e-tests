@@ -11,8 +11,8 @@ public class CorrectLoginTest extends SeleniumBaseTest {
     public void shouldLogSuccessfully() {
 
         new LoginPage(driver)
-                .typeEmail(config.getLogin())
-                .typePassword(config.getPassword())
+                .typeEmail(config.getApplicationUser())
+                .typePassword(config.getApplicationPassword())
                 .submitLogin()
                 .assertWelcomeElemetIsShown();
     }

@@ -18,8 +18,8 @@ public class AddProcessTest extends SeleniumBaseTest {
         String processNotes = Faker.instance().funnyName().name();
 
         new LoginPage(driver)
-                .typeEmail(config.getLogin())
-                .typePassword(config.getPassword())
+                .typeEmail(config.getApplicationUser())
+                .typePassword(config.getApplicationPassword())
                 .submitLogin()
                 .goToProcesses()
                 .addNewProcess()
@@ -41,8 +41,8 @@ public class AddProcessTest extends SeleniumBaseTest {
         String processNotes = Faker.instance().funnyName().name();
 
         new LoginPage(driver)
-                .typeEmail(config.getLogin())
-                .typePassword(config.getPassword())
+                .typeEmail(config.getApplicationUser())
+                .typePassword(config.getApplicationPassword())
                 .submitLogin()
                 .goToProcesses()
                 .addNewProcess()
@@ -62,8 +62,8 @@ public class AddProcessTest extends SeleniumBaseTest {
     public void shouldntShownOnDashboardPage() {
         String tooShortProcessName = "xy";
         new LoginPage(driver)
-                .typeEmail(config.getLogin())
-                .typePassword(config.getPassword())
+                .typeEmail(config.getApplicationUser())
+                .typePassword(config.getApplicationPassword())
                 .submitLogin()
                 .goToProcesses()
                 .addNewProcess()

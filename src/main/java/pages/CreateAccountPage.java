@@ -57,7 +57,7 @@ public class CreateAccountPage {
 
     }
 
-    public void assertRegisterErrorIsShown(String errorText) {
+    public CreateAccountPage assertRegisterErrorIsShown(String errorText) {
         boolean doesErrorExists = false;
         for (int i = 0; i < loginErrors.size(); i++) {
             if (loginErrors.get(i).getText().equals(errorText)) {

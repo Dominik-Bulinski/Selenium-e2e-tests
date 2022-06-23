@@ -6,6 +6,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
+import java.util.List;
+
 public class LoginPage {
     protected WebDriver driver;
 
@@ -26,8 +28,6 @@ public class LoginPage {
     @FindBy(css = "a[href*=Register]")
     private WebElement registerBtn;
 
-    @FindBy(css = ".validation-summary-errors>ul>li")
-    public List<WebElement> loginErrors;
 
 
     public LoginPage typeEmail(String email) {
@@ -48,11 +48,6 @@ public class LoginPage {
         return new HomePage(driver);
     }
 
-
-    public LoginPage submitLoginwithFailure() {
-        loginBtn.click();
-        return this;
-    }
 
     public LoginPage assertLoginIsShown(String errorText) {
         boolean doesErrorExists = false;

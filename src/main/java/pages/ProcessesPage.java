@@ -1,9 +1,15 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+
+import java.time.Duration;
+import java.util.List;
 
 public class ProcessesPage extends HomePage {
     public ProcessesPage(WebDriver driver) {
@@ -15,7 +21,7 @@ public class ProcessesPage extends HomePage {
     @FindBy(css = ".btn.btn-success")
     private WebElement addNewProcessBtn;
 
-    @FindBy(css = ".table>tbody>tr")//-responsive")
+    @FindBy(css = ".table>tbody>tr")
     private List<WebElement> processesTable;
 
     private String GENERIC_PROCESS_ROW_XPATH = "//td[text()='%s']/..";
@@ -26,7 +32,7 @@ public class ProcessesPage extends HomePage {
     }
 
     public ProcessesPage assertProcessesHeader() {
-        Assert.assertEquals(header.getText(), "Processes", "Headers do not match");
+        Assert.assertEquals(header.getText(), "Processes", "Headers is not the same");
         return this;
     }
 
@@ -38,8 +44,8 @@ public class ProcessesPage extends HomePage {
         String actDescription = processRow.findElement(By.xpath("./td[2]")).getText();
         String actNotes = processRow.findElement(By.xpath("./td[3]")).getText();
 
-        Assert.assertEquals(actDescription, expDescription, "Descriptions don't match");
-        Assert.assertEquals(actNotes, expNotes, "Notes don't match");
+        Assert.assertEquals(actDescription, expDescription, "Descriptions is not the same");
+        Assert.assertEquals(actNotes, expNotes, "Notes is not the same");
 
         return this;
     }

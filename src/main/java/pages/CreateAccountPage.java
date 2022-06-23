@@ -31,6 +31,7 @@ public class CreateAccountPage {
     @FindBy(id = "ConfirmPassword")
     private WebElement confirmPassword;
 
+
     public CreateAccountPage typeEmail(String email) {
         emailTxt.clear();
         emailTxt.sendKeys(email);
@@ -43,12 +44,20 @@ public class CreateAccountPage {
         return this;
     }
 
-    public CreateAccountPage typeConfirmPassword(String pass){
+    public CreateAccountPage submitRegisterWithFailure() {
+        registerBtn.click();
+        return this;
+    }
+
+    public CreateAccountPage typeConfirmPassword(String pass) {
         confirmPassword.clear();
         confirmPassword.sendKeys(pass);
         return this;
 
-    public CreateAccountPage assertErrorIsShown(String errorText) {
+
+    }
+
+    public void assertRegisterErrorIsShown(String errorText) {
         boolean doesErrorExists = false;
         for (int i = 0; i < loginErrors.size(); i++) {
             if (loginErrors.get(i).getText().equals(errorText)) {
@@ -59,5 +68,6 @@ public class CreateAccountPage {
         Assert.assertTrue(doesErrorExists, "Unknown error code");
         return this;
     }
+
 
 }

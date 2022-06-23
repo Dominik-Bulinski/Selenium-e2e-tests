@@ -8,7 +8,9 @@ import java.util.UUID;
 
 public class AddProcessTest extends SeleniumBaseTest {
 
-    /**Test nr. 6 for correct addition of a process - check if it has been added to the Processes table.*/
+    /**
+     * Test nr. 6 for correct addition of a process - check if it has been added to the Processes table.
+     */
     @Test
     private void shouldOccurOnProcessesPage() {
         String processName = UUID.randomUUID().toString().substring(0, 10);
@@ -29,7 +31,9 @@ public class AddProcessTest extends SeleniumBaseTest {
                 .assertProcess(processName, processDescription, processNotes);
     }
 
-    /**Test nr. 7 that the process has been added correctly - check that it displays on the Dashboard page.*/
+    /**
+     * Test nr. 7 that the process has been added correctly - check that it displays on the Dashboard page.
+     */
     @Test
     public void shouldBeShownOnDashboardPage() {
         String processName = UUID.randomUUID().toString().substring(0, 10);
@@ -51,7 +55,9 @@ public class AddProcessTest extends SeleniumBaseTest {
                 .assertNewProcessWasAdded(processName);
     }
 
-    /**Test nr. 8 for invalid process addition..*/
+    /**
+     * Test nr. 8 for invalid process addition..
+     */
     @Test
     public void shouldntShownOnDashboardPage() {
         String tooShortProcessName = "xy";

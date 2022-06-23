@@ -2,11 +2,13 @@ import org.testng.annotations.Test;
 import pages.HomePage;
 import pages.LoginPage;
 
-public class CorrectLoginTest extends SeleniumBaseTest{
+public class CorrectLoginTest extends SeleniumBaseTest {
 
-    /**Test nr. 6 Correct login test.*/
+    /**
+     * Test nr. 4 Correct login test.
+     */
     @Test
-    public void shouldLogSuccessfully(){
+    public void shouldLogSuccessfully() {
 
         new LoginPage(driver)
                 .typeEmail(config.getLogin())

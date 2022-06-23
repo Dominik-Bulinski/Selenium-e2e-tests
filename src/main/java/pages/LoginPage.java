@@ -28,6 +28,8 @@ public class LoginPage {
     @FindBy(css = "a[href*=Register]")
     private WebElement registerBtn;
 
+    @FindBy(css = ".validation-summary-errors>ul>li")
+    public List<WebElement> registerErrors;
 
 
     public LoginPage typeEmail(String email) {
@@ -51,8 +53,8 @@ public class LoginPage {
 
     public LoginPage assertLoginIsShown(String errorText) {
         boolean doesErrorExists = false;
-        for (int i = 0; i < loginErrors.size(); i++) {
-            if (loginErrors.get(i).getText().equals(errorText)) {
+        for (int i = 0; i < registerErrors.size(); i++) {
+            if (registerErrors.get(i).getText().equals(errorText)) {
                 doesErrorExists = true;
                 break;
             }

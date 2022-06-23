@@ -17,19 +17,19 @@ public class Config {
         return prop;
     }
 
-    public Config (){
+    public Config() {
         properties = getProperties();
     }
 
-    public String getApplicationUrl () {
+    public String getApplicationUrl() {
         return properties.getProperty("application.url");
     }
 
-    public String getApplicationUser () {
+    public String getApplicationUser() {
         return properties.getProperty("application.user");
     }
 
-    public String getApplicationPassword () {
+    public String getApplicationPassword() {
         return properties.getProperty("application.password");
     }
 

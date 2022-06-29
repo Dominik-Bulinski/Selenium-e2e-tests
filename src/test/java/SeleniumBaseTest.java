@@ -14,12 +14,12 @@ public class SeleniumBaseTest {
 
     @BeforeMethod
     public void baseBeforeMethod() {
-        WebDriverManager.chromedriver().driverVersion("102.0.5005.115").setup();
-        System.setProperty("webdriver.chrome.driver", "c:/dev/driver/chromedriver.exe");
+        WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.manage().window().maximize();
-        driver.get("http://localhost:4444/");
+        this.config = new Config();
+        driver.get(config.getApplicationUrl());
     }
 
     @AfterMethod

@@ -5,20 +5,11 @@ import pages.LoginPage;
 
 public class RegisterNewUserTest extends SeleniumBaseTest {
 
-    @DataProvider
-    public static Object[][] wrongPasswords() {
-        return new Object[][]{
-                {"xyz", "Password is too short."},
-                {"wrongpassword1!", "Passwords does not have capital letter"},
-                {"Wrongpassword1", "Passwords must consist one non alphanumeric character."}
-        };
-    }
-
     /**
      * Test nr. 2 Incorrect user registration test - passwords in "Password" and "Confirm Password" fields are inconsistent.
      */
     @Test
-    public void shouldFail() {
+    public void incorrectRegistriationTest() {
         String email = Faker.instance().internet().emailAddress();
         String password = Faker.instance().regexify("[A-Z]{1}[a-z]{5,96}[0-9]{1}([@#!$%^&*])");
 
@@ -28,7 +19,7 @@ public class RegisterNewUserTest extends SeleniumBaseTest {
                 .typePassword(password)
                 .typeConfirmPassword("OtherPassword1!")
                 .submitRegisterWithFailure()
-                .submitRegisterWithFailure() //have to click more than one time.
+                .submitRegisterWithFailure()
                 .assertRegisterErrorIsShown("The password and confirmation password do not match.");
     }
 
@@ -40,9 +31,18 @@ public class RegisterNewUserTest extends SeleniumBaseTest {
      * c) does not contain a special character
      */
 
+    @DataProvider
+    public static Object[][] wrongPasswords() {
+        return new Object[][]{
+                {"xyz"},
+                {"wrongpassword1!"},
+                {"Wrongpassword1"}
+        };
+    }
+
     @Test(dataProvider = "wrongPasswords")
-    public void shouldFail(String password, String errMsg) {
-        String email = "test@gmail.com";
+    public void wrongPasswordTest(String password, String errMsg) {
+        String email = "test@test.com";
         new LoginPage(driver)
                 .goToRegisterPage()
                 .typeEmail(email)

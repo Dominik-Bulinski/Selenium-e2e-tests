@@ -8,7 +8,7 @@ public class CorrectLoginTest extends SeleniumBaseTest {
      * Test nr. 4 Correct login test.
      */
     @Test
-    public void shouldLogSuccessfully() {
+    public void correctLoginTest() {
 
         new LoginPage(driver)
                 .typeEmail(config.getApplicationUser())

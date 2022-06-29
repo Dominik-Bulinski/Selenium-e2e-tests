@@ -12,7 +12,7 @@ public class AddProcessTest extends SeleniumBaseTest {
      * Test nr. 6 for correct addition of a process - check if it has been added to the Processes table.
      */
     @Test
-    private void shouldOccurOnProcessesPage() {
+    private void correctAddingProcessTest() {
         String processName = UUID.randomUUID().toString().substring(0, 10);
         String processDescription = Faker.instance().harryPotter().book();
         String processNotes = Faker.instance().funnyName().name();
@@ -35,7 +35,7 @@ public class AddProcessTest extends SeleniumBaseTest {
      * Test nr. 7 that the process has been added correctly - check that it displays on the Dashboard page.
      */
     @Test
-    public void shouldBeShownOnDashboardPage() {
+    public void addingProcessToDashboard() {
         String processName = UUID.randomUUID().toString().substring(0, 10);
         String processDescription = Faker.instance().harryPotter().book();
         String processNotes = Faker.instance().funnyName().name();
@@ -59,7 +59,7 @@ public class AddProcessTest extends SeleniumBaseTest {
      * Test nr. 8 for invalid process addition..
      */
     @Test
-    public void shouldntShownOnDashboardPage() {
+    public void invalidProcessAddingTest() {
         String tooShortProcessName = "xy";
         new LoginPage(driver)
                 .typeEmail(config.getApplicationUser())

@@ -34,9 +34,9 @@ public class RegisterNewUserTest extends SeleniumBaseTest {
     @DataProvider
     public static Object[][] wrongPasswords() {
         return new Object[][]{
-                {"xyz"},
-                {"wrongpassword1!"},
-                {"Wrongpassword1"}
+                {"xyz","The Password must be at least 6 and at max 100 characters long"},
+                {"Wrongpassword!","Passwords must have at least one digit ('0'-'9')."},
+                {"Wrongpassword1", "Passwords must have at least one non alphanumeric character."}
         };
     }
 
